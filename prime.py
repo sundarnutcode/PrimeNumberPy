@@ -5,6 +5,7 @@ def main():
     args = len(sys.argv)
  
     if args < 2:
+        # Show prime numbers less than 2000, if the user has not provided any command line parameter
         list = range(0,2000)
 
         for i in list:
@@ -53,6 +54,7 @@ def checkForPrime(number, suppress = False):
             else:
                 index += 2
 
+                # Skip odd numbers that are multiples of 3, 5, and 7.
                 while index < number and (index % 3 == 0 or (index % 5 == 0 and index != 5) or (index % 7 == 0 and index != 7)):
                     index += 2
 
