@@ -27,9 +27,9 @@ def main():
         print("Please enter positive numbers.")
 
 
-def checkForPrime(number, suppress = False):
+def checkForPrime(number, suppress_flag = False):
 
-    if suppress == False:
+    if suppress_flag == False:
         if number <= 1:
             print(f"{number} is not technically a prime number.")
             return
@@ -38,15 +38,17 @@ def checkForPrime(number, suppress = False):
             return;
 
     index = 2
-    primeNumber = True
+    is_prime_number = True
 
-    while index <= int(math.sqrt(number)):
+    limit = int(math.sqrt(number))
+
+    while index <= limit:
         if number > 3:
             if number % index == 0:
-                if suppress == False:
+                if suppress_flag == False:
                     print(f"{number} is not a prime number.")
 
-                primeNumber = False
+                is_prime_number = False
                 break
 
             if index == 2:
@@ -58,8 +60,8 @@ def checkForPrime(number, suppress = False):
                 while index < number and (index % 3 == 0 or (index % 5 == 0 and index != 5) or (index % 7 == 0 and index != 7)):
                     index += 2
 
-    if primeNumber:
-        if suppress == True:
+    if is_prime_number and number > 1:
+        if suppress_flag == True:
             print(number)
         else:
             print(f"{number} is a prime number.")
